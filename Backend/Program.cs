@@ -44,7 +44,7 @@ builder.Services.AddHostedService<ApodBackgroundService>();
 builder.Services.AddHostedService<NeoBackgroundService>();
 builder.Services.AddHostedService<DonkiFLRBackgroundService>();
 builder.Services.AddHostedService<DonkiCMEBackgroundService>();
-
+builder.Services.AddHostedService<SpaceXBackgroundService>();
 builder.Services.AddHttpClient<IssApiService>();
 
 var app = builder.Build();
