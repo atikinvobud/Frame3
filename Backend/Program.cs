@@ -38,7 +38,9 @@ builder.Services.AddDbContext<Context>(options => options.UseNpgsql(connectionSt
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<IIssApiService,IssApiService>();
 builder.Services.AddScoped<IIssRepository, IssRepository>();
+builder.Services.AddScoped<ISpaceCacheRepository, SpaceCacheRepository>();
 builder.Services.AddHostedService<IssBackgroundService>();
+builder.Services.AddHostedService<ApodBackgroundService>();
 builder.Services.AddHttpClient<IssApiService>();
 
 var app = builder.Build();
