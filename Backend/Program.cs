@@ -53,6 +53,7 @@ builder.Services.AddScoped<ITelemetryRepository, TelemetryRepository>();
 builder.Services.AddScoped<ITelemetryService, TelemetryService>();
 builder.Services.AddHostedService<TelemetryBackgroundService>();
 builder.Services.AddHttpClient<IssApiService>();
+builder.Services.AddSingleton<JwstHelper>();
 
 var app = builder.Build();
 
