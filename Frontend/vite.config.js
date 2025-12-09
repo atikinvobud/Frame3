@@ -1,11 +1,26 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite' // Импортируем плагин
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import tailwindcss from '@tailwindcss/vite';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    tailwindcss(), // Добавляем плагин Tailwind CSS
+    tailwindcss(),
   ],
-})
+
+  server: {
+    port: 5173,
+    proxy: {
+      '/iss': {
+        target: 'http://localhost:5170',
+        changeOrigin: true
+      },
+      '/jwst': {
+        target: 'http://localhost:5170',
+        changeOrigin: true
+      }
+    },
+
+    historyApiFallback: true
+  }
+});
