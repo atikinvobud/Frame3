@@ -6,4 +6,5 @@ public class FetchTimes
     public int Neo { get; set; }
     public int Donki { get; set; }
     public int Spacex { get; set; }
+    public int Telemetry { get; set; }
 }

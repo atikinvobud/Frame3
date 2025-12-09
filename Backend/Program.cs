@@ -49,6 +49,9 @@ builder.Services.AddHostedService<OsdrBackgroundService>();
 builder.Services.AddScoped<IOsdrService,OsdrService>();
 builder.Services.AddScoped<IOsdrRepository, OsdrRepository>();
 builder.Services.AddScoped<ISpaceCacheService, SpaceCacheService>();
+builder.Services.AddScoped<ITelemetryRepository, TelemetryRepository>();
+builder.Services.AddScoped<ITelemetryService, TelemetryService>();
+builder.Services.AddHostedService<TelemetryBackgroundService>();
 builder.Services.AddHttpClient<IssApiService>();
 
 var app = builder.Build();
