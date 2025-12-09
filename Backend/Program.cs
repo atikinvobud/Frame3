@@ -45,6 +45,9 @@ builder.Services.AddHostedService<NeoBackgroundService>();
 builder.Services.AddHostedService<DonkiFLRBackgroundService>();
 builder.Services.AddHostedService<DonkiCMEBackgroundService>();
 builder.Services.AddHostedService<SpaceXBackgroundService>();
+builder.Services.AddHostedService<OsdrBackgroundService>();
+builder.Services.AddScoped<IOsdrService,OsdrService>();
+builder.Services.AddScoped<IOsdrRepository, OsdrRepository>();
 builder.Services.AddHttpClient<IssApiService>();
 
 var app = builder.Build();

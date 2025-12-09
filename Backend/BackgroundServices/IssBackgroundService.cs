@@ -28,6 +28,7 @@ public class IssBackgroundService : BackgroundService
             {
                 using var scope = scopeFactory.CreateScope();
                 var repository = scope.ServiceProvider.GetRequiredService<IIssRepository>();
+                var spacerepository = scope.ServiceProvider.GetRequiredService<ISpaceCacheRepository>();
                 var httpClient = httpClientFactory.CreateClient();
 
                 var response = await httpClient.GetStringAsync(apiUrl);
@@ -37,6 +38,12 @@ public class IssBackgroundService : BackgroundService
                     await repository.AddAsync(new IssFetchLog
                     {
                         SourceUrl = apiUrl,
+                        Payload = response,
+                        FetchedAt = DateTime.UtcNow
+                    });
+                    await spacerepository.AddAsync(new SpaceCache
+                    {
+                        Source = "iss",
                         Payload = response,
                         FetchedAt = DateTime.UtcNow
                     });
