@@ -22,7 +22,6 @@ const mapContainer = ref(null);
 const speedChart = ref(null);
 const altChart = ref(null);
 
-// История последних 20 точек
 const speedHistory = [];
 const altHistory = [];
 const timeLabels = [];
@@ -40,12 +39,10 @@ const fetchLast = async () => {
 };
 
 onMounted(async () => {
-  // Карта
   const map = L.map(mapContainer.value, { attributionControl: false }).setView([0,0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', { noWrap: true }).addTo(map);
   const marker = L.marker([0,0]).addTo(map).bindPopup('МКС');
 
-  // Графики
   const speed = new Chart(speedChart.value, {
     type: 'line',
     data: { labels: [], datasets: [{ label: 'Скорость (км/ч)', data: [], borderColor: '#3498db', fill: false }] },
@@ -62,12 +59,10 @@ onMounted(async () => {
     const data = await fetchLast();
     if (!data.latitude || !data.longitude) return;
 
-    // Обновляем карту
     const latlng = [data.latitude, data.longitude];
     marker.setLatLng(latlng);
     map.setView(latlng, map.getZoom());
 
-    // Обновляем графики
     const time = new Date(data.timestamp * 1000).toLocaleTimeString();
     timeLabels.push(time);
     speedHistory.push(data.velocity);
@@ -89,7 +84,7 @@ onMounted(async () => {
   };
 
   await update();
-  setInterval(update, 15000);
+  setInterval(update, 120000);
 });
 </script>
 

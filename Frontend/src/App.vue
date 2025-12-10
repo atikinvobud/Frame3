@@ -3,10 +3,16 @@
     <nav class="navbar-card">
       <ul class="navbar-list">
         <li>
-          <router-link to="/" class="nav-link" active-class="active">Dashboard</router-link>
+          <router-link to="/dash" class="nav-link" active-class="active">Dashboard</router-link>
         </li>
         <li>
           <router-link to="/jwst" class="nav-link" active-class="active">JWST</router-link>
+        </li>
+        <li>
+          <router-link to="/odsr" class="nav-link" active-class="active">ODSR</router-link>
+        </li>
+        <li>
+          <router-link to="/astro" class="nav-link" active-class="active">AstroEvents</router-link>
         </li>
       </ul>
     </nav>
@@ -18,7 +24,7 @@
 </template>
 
 <script setup>
-// Ничего не нужно
+
 </script>
 
 <style>
@@ -46,9 +52,7 @@ body, html, #app {
   padding: 0;
 }
 
-.navbar-list li {
-  
-}
+
 
 .nav-link {
   color: #333;

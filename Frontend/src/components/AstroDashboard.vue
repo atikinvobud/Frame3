@@ -1,15 +1,12 @@
 <template>
   <div class="dashboard-container">
 
-    <!-- Карта + ISS Info -->
     <div class="dashboard-main">
 
-      <!-- Карта -->
       <div class="map-container">
         <IssMap :iss="iss" />
       </div>
 
-      <!-- ISS Info -->
       <div class="iss-info">
         <h3>МКС — данные</h3>
         <div class="iss-cards">
@@ -76,7 +73,6 @@ onMounted(() => {
   margin-top: 20px;
 }
 
-/* Карта */
 .map-container {
   flex: 2;
   min-height: 400px;
@@ -85,7 +81,6 @@ onMounted(() => {
   overflow: hidden;
 }
 
-/* ISS Info */
 .iss-info {
   flex: 1;
 }

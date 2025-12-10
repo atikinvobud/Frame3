@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Backend.Controllers;
 
 [ApiController]
-[Route("osdr")]
+[Route("odsr")]
 public class OsdrController : ControllerBase
 {
     private readonly IOsdrService service;

@@ -2,7 +2,6 @@
   <div class="jwst-card">
     <h3>JWST — последние изображения</h3>
 
-    <!-- Форма фильтрации -->
     <form @submit.prevent="applyFilter" class="jwst-form">
       <label>
         Фильтр по:
@@ -35,7 +34,6 @@
       <button type="submit">Применить</button>
     </form>
 
-    <!-- Галерея -->
     <div ref="galleryContainer" class="gallery">
       <div v-if="loading" class="loading">Загрузка…</div>
       <figure v-for="item in images" :key="item.id" class="gallery-item">
@@ -46,7 +44,6 @@
       </figure>
     </div>
 
-    <!-- Пагинация -->
     <div class="pagination">
       <button @click="prevPage" :disabled="filter.page <= 1">« Назад</button>
       <span>Страница {{ filter.page }}</span>
@@ -99,7 +96,7 @@ const loadImages = async () => {
         .map(item => ({
           id: item.id,
           location: item.location,
-          thumbnail: item.thumbnail || '' // используем миниатюру, если есть
+          thumbnail: item.thumbnail || '' 
         }));
     } else {
       images.value = [];
@@ -147,7 +144,6 @@ onMounted(() => {
   color: #333;
 }
 
-/* Форма фильтрации */
 .jwst-form {
   display: flex;
   flex-wrap: wrap;
@@ -162,16 +158,15 @@ onMounted(() => {
   border-radius: 4px;
 }
 
-/* Галерея */
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* центрируем по горизонтали */
+  justify-content: center; 
   gap: 10px;
   overflow-x: hidden;
 }
 .gallery-item {
-  width: 200px; /* фиксированная ширина для карточки */
+  width: 200px;
   border: 1px solid #888;
   border-radius: 6px;
   overflow: hidden;
@@ -180,7 +175,7 @@ onMounted(() => {
 }
 .gallery-item img {
   width: 100%;
-  height: auto; /* сохраняем пропорции */
+  height: auto; 
   display: block;
 }
 .caption {
@@ -189,13 +184,12 @@ onMounted(() => {
   color: #222;
 }
 
-/* Пагинация */
 .pagination {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  justify-content: center; /* тоже по центру */
+  justify-content: center;
 }
 .pagination button {
   padding: 5px 10px;
@@ -216,7 +210,7 @@ onMounted(() => {
   margin-top: 10px;
   font-size: 12px;
   color: #555;
-  text-align: center; /* по центру */
+  text-align: center;
 }
 .loading {
   padding: 10px;
