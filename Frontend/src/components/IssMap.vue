@@ -84,7 +84,7 @@ onMounted(async () => {
   };
 
   await update();
-  setInterval(update, 120000);
+  setInterval(update, 60000);
 });
 </script>
 
