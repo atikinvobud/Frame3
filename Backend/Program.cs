@@ -72,7 +72,11 @@ builder.Services.AddHttpClient<IssApiService>();
 builder.Services.AddSingleton<JwstHelper>();
 builder.Services.AddSingleton<AstroHelper>();
 builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
-
+builder.Services.AddSingleton(sp =>
+{
+    var redis = sp.GetRequiredService<IConnectionMultiplexer>();
+    return new RedisRateLimiter(redis, maxRequests: 2, window: TimeSpan.FromSeconds(1));
+});
 var app = builder.Build();
 
 app.UseSwagger();
@@ -83,7 +87,7 @@ app.UseSwaggerUI(c =>
 });
 
 app.ApplyMigrations();
-
+app.UseMiddleware<RateLimiterMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
