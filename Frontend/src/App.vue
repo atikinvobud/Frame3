@@ -9,7 +9,7 @@
           <router-link to="/jwst" class="nav-link" active-class="active">JWST</router-link>
         </li>
         <li>
-          <router-link to="/odsr" class="nav-link" active-class="active">ODSR</router-link>
+          <router-link to="/odsr" class="nav-link" active-class="active">OSDR</router-link>
         </li>
         <li>
           <router-link to="/astro" class="nav-link" active-class="active">AstroEvents</router-link>

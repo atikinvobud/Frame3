@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: '/odsr',
-    name: 'ODSR',
+    name: 'OSDR',
     component: OdsrPage
   },
   {

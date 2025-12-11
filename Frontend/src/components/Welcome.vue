@@ -11,7 +11,7 @@
 
       <div class="buttons">
         <router-link to="/jwst" class="nav-btn">JWST</router-link>
-        <router-link to="/odsr" class="nav-btn">ODSR</router-link>
+        <router-link to="/odsr" class="nav-btn">OSDR</router-link>
         <router-link to="/astro" class="nav-btn">Astronomy API</router-link>
         <router-link to="/dash" class="nav-btn">ISS</router-link>
       </div>
